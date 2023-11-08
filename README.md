@@ -11,7 +11,7 @@ functionality for the car park system.
 ## OOP Design
 
 <p align="center">
-  <img src="https://github.com/haxamxam/JavaSwingGUIParkingSystem/blob/main/oop.png" width="550" title="OOP">
+  <img src="https://github.com/duongdz96/CarParkingSystem/blob/main/oop.png" width="550" title="OOP">
 </p>
 
 ## User Interface
