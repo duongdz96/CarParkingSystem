@@ -60,7 +60,7 @@ public class GUI implements ActionListener{
             System.exit(0);
          }        
       });
-      addVisStafParking();                                             // function for adding visitor and staff parking
+      //addVisStafParking();                                             // function for adding visitor and staff parking
    
       JPanel imagePanel = new JPanel(new GridLayout(2, 1));            // adding header panel containing image and text  with 2 rows 1 column
       JLabel textLabel = new JLabel("CAR PARK SYSTEM");      // Text label for headerpanel
@@ -239,52 +239,52 @@ public class GUI implements ActionListener{
      */
     
    
-   public void addVisStafParking(){
-      JOptionPane jO = new JOptionPane();
-      boolean query = false;
-      while (!query){
-      String vis = jO.showInputDialog("Enter Number of Visitor Parking");
-      String stf = jO.showInputDialog("Enter Number of Staff Parking");
-      if (vis!=null && stf!=null){
-      
-      if(!vis.chars().allMatch( Character::isDigit ) || !stf.chars().allMatch( Character::isDigit ))
-      {
-          jO.showMessageDialog(null, "Please enter a numeric value eg. (1 or 5 )");
-          
-      }
-       else if(stf.equals("") || vis.equals(""))
-      {
-          jO.showMessageDialog(null, "Please don't leave input blank. Enter a numeric value eg. (1 or 5 )");
-
-      }
-      else
-      {
-      int vid = Integer.parseInt(vis);
-      int nid = Integer.parseInt(stf);
-      
-      int p = 0;
-      int z = 0;
-      
-      while (p<vid)
-        {
-            p++;                                                                       //increment i
-            String uniqueNum = String.format("%03d", p);                               // 3 digit sequential id "001", "002" etc
-            ParkingSlot aParkingSlot = new ParkingSlot("V" + uniqueNum);               // V + 001, V+ 002 and so on
-            carpar.addNewParkingSlot(aParkingSlot); 
-        }
-      while (z<nid)
-        {
-            z++;                                                                       //increment i
-            String uniqueNum = String.format("%03d", z);                               // 3 digit sequential id "001", "002" etc
-            ParkingSlot aParkingSlot = new ParkingSlot("S" + uniqueNum, true);               // V + 001, V+ 002 and so on
-            carpar.addNewParkingSlot(aParkingSlot); 
-        }
-      JOptionPane.showMessageDialog(null, p + " visitor parking spots created and " + z + " staff parking spots created!"); 
-      query = true; 
-     }
-    }
-    }
-    }
+//   public void addVisStafParking(){
+//      JOptionPane jO = new JOptionPane();
+//      boolean query = false;
+//      while (!query){
+//      String vis = jO.showInputDialog("Enter Number of Visitor Parking");
+//      String stf = jO.showInputDialog("Enter Number of Staff Parking");
+//      if (vis!=null && stf!=null){
+//
+//      if(!vis.chars().allMatch( Character::isDigit ) || !stf.chars().allMatch( Character::isDigit ))
+//      {
+//          jO.showMessageDialog(null, "Please enter a numeric value eg. (1 or 5 )");
+//
+//      }
+//       else if(stf.equals("") || vis.equals(""))
+//      {
+//          jO.showMessageDialog(null, "Please don't leave input blank. Enter a numeric value eg. (1 or 5 )");
+//
+//      }
+//      else
+//      {
+//      int vid = Integer.parseInt(vis);
+//      int nid = Integer.parseInt(stf);
+//
+//      int p = 0;
+//      int z = 0;
+//
+//      while (p<vid)
+//        {
+//            p++;                                                                       //increment i
+//            String uniqueNum = String.format("%03d", p);                               // 3 digit sequential id "001", "002" etc
+//            ParkingSlot aParkingSlot = new ParkingSlot("V" + uniqueNum);               // V + 001, V+ 002 and so on
+//            carpar.addNewParkingSlot(aParkingSlot);
+//        }
+//      while (z<nid)
+//        {
+//            z++;                                                                       //increment i
+//            String uniqueNum = String.format("%03d", z);                               // 3 digit sequential id "001", "002" etc
+//            ParkingSlot aParkingSlot = new ParkingSlot("S" + uniqueNum, true);               // S + 001, S+ 002 and so on
+//            carpar.addNewParkingSlot(aParkingSlot);
+//        }
+//      JOptionPane.showMessageDialog(null, p + " visitor parking spots created and " + z + " staff parking spots created!");
+//      query = true;
+//     }
+//    }
+//    }
+//    }
     
    /**
      * deleting the car parking by taking the userinput for the spot required to be deleted. If spot is not occupied then it is 
@@ -329,7 +329,7 @@ public class GUI implements ActionListener{
     
    public void addParkingSpot(){
        
-       String spotID = JOptionPane.showInputDialog("Add Spot ID eg. (S110)");
+       String spotID = JOptionPane.showInputDialog("Add Spot ID eg. (S110 (staff) or V110 (visitor))");
        boolean isParkingSlotDuplicate = false;
        if (spotID!=null)
        {
@@ -381,7 +381,7 @@ public class GUI implements ActionListener{
                     }
                     else
                     {
-                        JOptionPane.showMessageDialog(null, "Visitor Parking must start with V should be 4 digits eg. (V999). Try again");
+                        JOptionPane.showMessageDialog(null, "Visitor Parking must start with V should be 4 digits eg. (V001). Try again");
                     }
                 }
                 /* if user doesn't choose staff or visitor. Display an error */
