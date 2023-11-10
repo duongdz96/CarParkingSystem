@@ -85,13 +85,13 @@ public class GUI implements ActionListener{
       mainFrame.add(headerpanel);                                      // add to main JFrame
       JButton button1 = new JButton("Show All Parking Spots");
       button1.setBackground(Color.LIGHT_GRAY);
-      JButton button2 = new JButton("Find Car");                        // new JButtons for last panel
+      JButton button2 = new JButton("Find Vehicle");                        // new JButtons for last panel
       button2.setBackground(Color.LIGHT_GRAY);
-      JButton button3 = new JButton("Park Car");
+      JButton button3 = new JButton("Park Vehicle");
       button3.setBackground(Color.LIGHT_GRAY);
       JButton button4 = new JButton("Delete Spot");
       button4.setBackground(Color.LIGHT_GRAY);
-      JButton button5 = new JButton("Remove Car");
+      JButton button5 = new JButton("Remove Vehicle");
       button5.setBackground(Color.LIGHT_GRAY);
       JButton button6 = new JButton("Add Parking Spot");
       button6.setBackground(Color.LIGHT_GRAY);
@@ -328,8 +328,9 @@ public class GUI implements ActionListener{
     */ 
     
    public void addParkingSpot(){
-       
-       String spotID = JOptionPane.showInputDialog("Add Spot ID eg. (S110 (staff) or V110 (visitor))");
+
+       String spotstfvis = JOptionPane.showInputDialog("Is this a staff or visitor parking?").toUpperCase();
+       String spotID = JOptionPane.showInputDialog("Add Spot ID eg. (S001 if staff or V001 if visitor)");
        boolean isParkingSlotDuplicate = false;
        if (spotID!=null)
        {
@@ -351,7 +352,7 @@ public class GUI implements ActionListener{
             
             if(!isParkingSlotDuplicate)
             {
-                String spotstfvis = JOptionPane.showInputDialog("Is this a staff or visitor parking?").toUpperCase();
+//                String spotstfvis = JOptionPane.showInputDialog("Is this a staff or visitor parking?").toUpperCase();
                 if(spotstfvis.contains("STAFF"))
                 {
                     /* checking if id starts with S, total length is 4 and contains numerics after S */
@@ -403,7 +404,7 @@ public class GUI implements ActionListener{
     
    public void removeVehicle(){
        boolean userQuery = false;
-       String rego = JOptionPane.showInputDialog("Enter Registration Number of the Car eg. (A12345)");
+       String rego = JOptionPane.showInputDialog("Enter Registration Number of the Car eg. (30A12345)");
        if(rego!=null)
        {
        for(ParkingSlot aParkingSlot : carpar.getAllParkingSlots())
@@ -483,64 +484,65 @@ public class GUI implements ActionListener{
    
    public void parkCarSubMenu(String spotid)
    {
-        String reg = JOptionPane.showInputDialog(null, "Enter Registration Number eg. (A12345)", "Enter Registration Window", JOptionPane.INFORMATION_MESSAGE);
-        if (reg !=null)
-        {
-            if (carpar.findVehicleRego(reg).isEmpty())
-            {
-                if (Character.isUpperCase(reg.charAt(0)) && reg.length()==6 && reg.substring(1).chars().allMatch( Character::isDigit )){
-                      String owner = JOptionPane.showInputDialog(null, "Enter Owner Name", "Enter Owner Window", JOptionPane.INFORMATION_MESSAGE);
-                    if(owner !=null)
-                    {
-                        Car car = new Car(reg , owner);                          // init new car
-                        Vehicle vehicle = car;
-                        int reply = JOptionPane.showConfirmDialog(null, "Is this a Staff Parking", "Staff Confirmation Window", JOptionPane.YES_NO_OPTION);
-                        if (reply == JOptionPane.YES_OPTION) 
-                        {
-                            if(carpar.findParkingbyID(spotid).getIsStaff())
-                            {
-                                carpar.findParkingbyID(spotid).addStaffVehicle(vehicle);
-                                JOptionPane.showMessageDialog(null, "Success Staff Car is Parked");
-                                headerpanel.removeAll();
-                                showAllParkings();
-                            }
-                            else
-                            {
-                               JOptionPane.showMessageDialog(null, "This Spot " +spotid+" Isn't a Staff Spot", "Not a Staff Spot", JOptionPane.ERROR_MESSAGE);
-    
-                            }
-                        } 
-                        else 
-                        {
-                            if(!carpar.findParkingbyID(spotid).getIsStaff())
-                            {
-                                carpar.findParkingbyID(spotid).addVisitorVehicle(vehicle);
-                                JOptionPane.showMessageDialog(null, "Success Visitor Car is Parked", "Car Parked", JOptionPane.INFORMATION_MESSAGE);
-                                headerpanel.removeAll();
-                                showAllParkings();
-                            }
-                            else
-                            {
-                               JOptionPane.showMessageDialog(null, "This Spot " +spotid+" Isn't a Visitor Spot", "Not a Visitor Spot", JOptionPane.ERROR_MESSAGE);
-    
-                            }
-                            
-                        }
-                    }
-                }
-                else
-                {
-                    
-                    JOptionPane.showMessageDialog(null, "Enter registration with proper format eg. (A12345)", "Wrong Registration Format", JOptionPane.ERROR_MESSAGE);
-
-                }
-            }
-            else
-            {
-                JOptionPane.showMessageDialog(null, "Registration Already Exists In Car Park", "Duplicate Registration", JOptionPane.ERROR_MESSAGE);
-
-            }
-        }
+//        String reg = JOptionPane.showInputDialog(null, "Enter Registration Number eg. (30A12345)", "Enter Registration Window", JOptionPane.INFORMATION_MESSAGE);
+//        if (reg !=null)
+//        {
+//            if (carpar.findVehicleRego(reg).isEmpty())
+//            {
+//                if (Character.isUpperCase(reg.charAt(2)) && reg.length()==8 && reg.substring(1).chars().allMatch( Character::isDigit )){
+//                      String owner = JOptionPane.showInputDialog(null, "Enter Owner Name", "Enter Owner Window", JOptionPane.INFORMATION_MESSAGE);
+//                    if(owner !=null)
+//                    {
+//                        Car car = new Car(reg , owner);                          // init new car
+//                        Vehicle vehicle = car;
+//                        int reply = JOptionPane.showConfirmDialog(null, "Is this a Staff Parking", "Staff Confirmation Window", JOptionPane.YES_NO_OPTION);
+//                        if (reply == JOptionPane.YES_OPTION)
+//                        {
+//                            if(carpar.findParkingbyID(spotid).getIsStaff())
+//                            {
+//                                carpar.findParkingbyID(spotid).addStaffVehicle(vehicle);
+//                                JOptionPane.showMessageDialog(null, "Success Staff Car is Parked");
+//                                headerpanel.removeAll();
+//                                showAllParkings();
+//                            }
+//                            else
+//                            {
+//                               JOptionPane.showMessageDialog(null, "This Spot " +spotid+" Isn't a Staff Spot", "Not a Staff Spot", JOptionPane.ERROR_MESSAGE);
+//
+//                            }
+//                        }
+//                        else
+//                        {
+//                            if(!carpar.findParkingbyID(spotid).getIsStaff())
+//                            {
+//                                carpar.findParkingbyID(spotid).addVisitorVehicle(vehicle);
+//                                JOptionPane.showMessageDialog(null, "Success Visitor Car is Parked", "Car Parked", JOptionPane.INFORMATION_MESSAGE);
+//                                headerpanel.removeAll();
+//                                showAllParkings();
+//                            }
+//                            else
+//                            {
+//                               JOptionPane.showMessageDialog(null, "This Spot " +spotid+" Isn't a Visitor Spot", "Not a Visitor Spot", JOptionPane.ERROR_MESSAGE);
+//
+//                            }
+//
+//                        }
+//                    }
+//                }
+//                else
+//                {
+//
+//                    JOptionPane.showMessageDialog(null, "Enter registration with proper format eg. (30A12345)", "Wrong Registration Format", JOptionPane.ERROR_MESSAGE);
+//
+//                }
+//            }
+//            else
+//            {
+//                JOptionPane.showMessageDialog(null, "Registration Already Exists In Car Park", "Duplicate Registration", JOptionPane.ERROR_MESSAGE);
+//
+//            }
+//        }
+       parkCar();
     }
             
             
@@ -628,7 +630,7 @@ public class GUI implements ActionListener{
        headerLabel= new JLabel("");
        String value ="";
        boolean query = false;
-       String rego = JOptionPane.showInputDialog("The Rego Number of the Car eg. (P12345)");
+       String rego = JOptionPane.showInputDialog("The Rego Number of the Car eg. (30A12345)");
        if(rego!=null){
        value ="Your Parking details are as following: <br><p style='font-size:11px;'>"+"ID " + " Status " + " Vacancy " + " Registration "+ " Owner " + " Time In "+"</p>"+ "<br>";
        for(ParkingSlot aParkingSlot : carpar.getAllParkingSlots())
@@ -663,10 +665,10 @@ public class GUI implements ActionListener{
     */  
     
    public void parkCar(){
-       String rego = JOptionPane.showInputDialog("The Rego Number of the Car eg (A12345)");   
+       String rego = JOptionPane.showInputDialog("The Registration Number of the Car eg (30A12345)");
        String value = "";
        if(rego!=null){
-        if (rego.length()==6 && !carpar.findVehicleRego(rego).contains(rego) && Character.isUpperCase(rego.charAt(0)))
+        if (rego.length()==8 && !carpar.findVehicleRego(rego).contains(rego) && Character.isUpperCase(rego.charAt(2)))
         {
             String owner = JOptionPane.showInputDialog("Enter Name of the owner");
             Car car = new Car(rego , owner);                          // init new car
@@ -683,8 +685,9 @@ public class GUI implements ActionListener{
               //value = "Please select a Parking Spot from below: " + "<br>";
               headerpanel.removeAll();
               showAllParkings();
-              String parkingSpot = JOptionPane.showInputDialog("Enter Spot You Want to Park eg. (S001)");
               String staffMember = JOptionPane.showInputDialog("Are you a staff member or visitor?");
+              String parkingSpot = JOptionPane.showInputDialog("Enter Spot You Want to Park eg. (S001 if staff or V001 if visitor )");
+
               if (parkingSpot !=null && staffMember !=null){
               if(carpar.findParkingbyID(parkingSpot).getParkingSlotId().equals(parkingSpot) && !carpar.findParkingbyID(parkingSpot).getIsOccupied() )
             {  
@@ -732,7 +735,7 @@ public class GUI implements ActionListener{
         }
         else
         {
-            JOptionPane.showMessageDialog(headerLabel, "Make Sure Registration follows proper format eg.(A12345).", "Registration input incorrect", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(headerLabel, "Make Sure Registration follows proper format eg.(30A12345).", "Registration input incorrect", JOptionPane.ERROR_MESSAGE);
         }
     }
     }
