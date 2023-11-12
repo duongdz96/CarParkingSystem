@@ -1,9 +1,4 @@
 
-/**
- * Car Class - The Car class is an extension of vehicle class
- * It provides information about registration and owner of the car
- */
-
 public class Car extends Vehicle
 {
     private String rego;           // registration number of the car

@@ -1,11 +1,4 @@
 
-/**
- * The ParkingSlot class contains information about the spot id, if it is occupied, if it belongs to staff
- * It also contains a vehicle instance and LocalDateTime to add the vehicle and time to the spot.
- *
- * @author Hamza Suhail
- * @version 11.0.2, Date 11/04/2021, Student id: 102666611
- */
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 

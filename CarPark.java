@@ -1,17 +1,10 @@
 
-/**
- * The CarPark class contains a collection of parkingslots.
- * It has methods to add spots, remove spots, get details of the spot and vehicle 
- *
- * @author Hamza Suhail
- * @version 11.0.2, Date 11/04/2021, Student id: 102666611
- */
 import java.util.ArrayList;
 import java.time.format.DateTimeFormatter;
 import java.io.IOException;
 public class CarPark
 {
-    private ArrayList<ParkingSlot> ParkingSlots;         // these are our collection of existing parkingslots in an arraylist
+    private ArrayList<ParkingSlot> ParkingSlots;         // these are our collection of existing parking slots in an arraylist
      
     /** 
      * defines the ParkingSlot collection object

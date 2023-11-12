@@ -1,22 +1,13 @@
 
-/**
- * The GUI class imports swing and awt libraries and implements the ActionListerner interface
- * Its constructor contains the carpark instance and the prepareGUI() function which establishes a new JFrame and adds different
- * components to it.
- * Each button in the mainframe has anonymous actionlistners that revert back to specified functions in GUI class.
- *
- * @author Hamza Suhail
- * @version 11.0.2, Date 11/04/2021, Student id: 102666611
- */
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import java.util.ArrayList;
 import javax.swing.border.Border;
-import java.awt.image.BufferedImage;
-import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
+
+
 public class GUI implements ActionListener{
    private JFrame mainFrame;
    private JLabel headerLabel;
@@ -24,16 +15,13 @@ public class GUI implements ActionListener{
    private JButton labelButton;
    private JPanel controlPanel;
    private JPanel headerpanel;
-   private JTextArea msglabel;
    private CarPark carpar;
-   
-   
+
+   private  String fcar, fcarPark, fVehicle, fparkingSlot;
+   private List <Car> carList;
    /**
      * 
      * Constructor for the GUI
-     * 
-     * @param  carpar- a carpark instance
-     * 
      */
 
    public GUI(CarPark carpar){
@@ -41,15 +29,7 @@ public class GUI implements ActionListener{
       prepareGUI();
    }
    
-   /**
-     * 
-     * Preparing the GUI by making a new JFrame first, then adding 3 panels namely, imagePanel, headerPanel and main to hold the 
-     * image, output screen (displays both text and buttons) and buttons for main selection.
-     * Events are added to each button which functions through an Anonymous listener.
-     * 
-     * 
-     */
-   
+
    private void prepareGUI(){
       mainFrame = new JFrame("Car Park System");              // Init new JFrame
       mainFrame.setSize(1000,600);
@@ -96,7 +76,7 @@ public class GUI implements ActionListener{
       JButton button6 = new JButton("Add Parking Spot");
       button6.setBackground(Color.LIGHT_GRAY);
       JButton button7 = new JButton("Exit Application");
-      JButton button8 = new JButton("Clear Screen");
+      JButton button8 = new JButton("Home Screen");
       button7.setBackground(Color.LIGHT_GRAY);
       button8.setBackground(Color.LIGHT_GRAY);
       JPanel main = new JPanel(new GridLayout(4,2));                     // divide 4 rows, 2 columns in last JPanel

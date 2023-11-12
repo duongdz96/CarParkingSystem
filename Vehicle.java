@@ -1,19 +1,11 @@
 
-/**
- * Abstract class Vehicle - The Vehicle class provides information such as owner details, arrival time, staff vehicle
- * and registration number details
- *
- * @author Hamza Suhail
- * @version Java 11.0.2, Date: 31/03/2021
- */
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 public abstract class Vehicle
 {
     protected String owner;                              // the name of the owner
-    private LocalDateTime arrivalTime;                 // arrivaltime of vehicle
+    private LocalDateTime arrivalTime;                 // arrival time of vehicle
     
     
         
