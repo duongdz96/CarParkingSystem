@@ -2,9 +2,6 @@
 /**
  * Car Class - The Car class is an extension of vehicle class
  * It provides information about registration and owner of the car
- *
- * @author Hamza Suhail
- * @version Java 11.0.2, Date: 31/03/2021
  */
 
 public class Car extends Vehicle

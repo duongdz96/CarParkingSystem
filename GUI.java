@@ -69,7 +69,7 @@ public class GUI implements ActionListener{
       textLabel.setFont(new Font("Serif", Font.BOLD, 40));
       imagePanel.add(textLabel);      
       JLabel picLabel = new JLabel();                                  // new label for icon in the header
-      picLabel.setIcon(new ImageIcon(new ImageIcon("caricon.png").getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH)));
+      picLabel.setIcon(new ImageIcon(new ImageIcon("caricon.png").getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH)));
       picLabel.setHorizontalAlignment(SwingConstants.CENTER);
       picLabel.setVerticalAlignment(SwingConstants.CENTER);
       imagePanel.add(picLabel);
@@ -99,11 +99,11 @@ public class GUI implements ActionListener{
       JButton button8 = new JButton("Clear Screen");
       button7.setBackground(Color.LIGHT_GRAY);
       button8.setBackground(Color.LIGHT_GRAY);
-      JPanel main = new JPanel(new GridLayout(4,2));                     // 4 rows, 2 columns in last JPanel
+      JPanel main = new JPanel(new GridLayout(4,2));                     // divide 4 rows, 2 columns in last JPanel
       button1.addActionListener(new ActionListener()
             {
-                /* first anonymous action listener removes 
-                 * everything on the headerpanel first and runs the showallParkings function when button 1 is clicked
+                /*
+                 * everything on the headerpanel first and runs the showAllParkings function when button 1 is clicked
                  * 
                  */
                 public void actionPerformed(ActionEvent e)
@@ -114,10 +114,8 @@ public class GUI implements ActionListener{
             });
       button2.addActionListener(new ActionListener()
             {
-                /* 
-                 * second anonymous action listener runs 
+                /*
                  * the findCar function when button 2 is clicked
-                 * 
                  */
                 public void actionPerformed(ActionEvent e)
                 {
@@ -127,8 +125,7 @@ public class GUI implements ActionListener{
       
       button3.addActionListener(new ActionListener()
             {
-                /* 
-                 * third anonymous action listener runs
+                /*
                  * parkCar function when button 3 is clicked
                  */
                 public void actionPerformed(ActionEvent e)
@@ -139,8 +136,7 @@ public class GUI implements ActionListener{
             
       button4.addActionListener(new ActionListener()
             {
-                /* 
-                 * fourth anonymous action listener removes everything on the headerpanel and runs
+                /*
                  * deleteParking function when button 4 is clicked
                  */
                 public void actionPerformed(ActionEvent e)
@@ -152,9 +148,8 @@ public class GUI implements ActionListener{
             
       button5.addActionListener(new ActionListener()
             {
-                /* 
-                 * fifth anonymous action listener runs the removeVehicle function when button 5
-                 * is clicked
+                /*
+                 *  runs the removeVehicle function when button 5 is clicked
                  */
                 public void actionPerformed(ActionEvent e)
                 {
@@ -165,8 +160,7 @@ public class GUI implements ActionListener{
       button6.addActionListener(new ActionListener()
             {
                 /* 
-                 * sixth anonymous action listener runs the addParkingSpot function when button 6
-                 * is clicked
+                 *  runs the addParkingSpot function when button 6 is clicked
                  */
                 public void actionPerformed(ActionEvent e)
                 {
@@ -178,8 +172,7 @@ public class GUI implements ActionListener{
       button7.addActionListener(new ActionListener()
             {
                 /* 
-                 * seventh anonymous action listener exits the application when button 7
-                 * is clicked
+                 * exits the application when button 7 is clicked
                  */
                 public void actionPerformed(ActionEvent e)
                 {
@@ -190,8 +183,7 @@ public class GUI implements ActionListener{
       button8.addActionListener(new ActionListener()
             {
                 /* 
-                 * eigth anonymous action listener runs the showHomeScreen function when button 8
-                 * is clicked
+                 *  runs the showHomeScreen function when button 8 is clicked
                  */
                 public void actionPerformed(ActionEvent e)
                 {
@@ -201,7 +193,7 @@ public class GUI implements ActionListener{
             
       main.add(button1);
       main.add(button2);
-      main.add(button3);                             // add all buttons to last JPanel
+      main.add(button3);                             // add buttons to last JPanel
       main.add(button4);
       main.add(button5);
       main.add(button6);
@@ -212,15 +204,9 @@ public class GUI implements ActionListener{
       
       mainFrame.setVisible(true);  
    }
-   
-   /**
-     * Showing the homescreen through removing existing content on headerpanel first, then adding a new JLabel and adding it
-     * to headerpanel. The headerpanel is revalidated and repainted and the mainFrame is set to true.
-     * 
-     * 
-     */
-   
-      
+
+//   Showing HomeScreen
+
    private void showHomeScreen(){
       headerpanel.removeAll(); 
       headerLabel= new JLabel("Welcome to Ha Noi Car Park");
@@ -231,66 +217,10 @@ public class GUI implements ActionListener{
       headerpanel.repaint();   // This is required if changing components
       mainFrame.setVisible(true);      
    }
-   
+
+
    /**
-     * Adding visitor and staff car parking spots through initiating a new JOptionPane and taking userinputs.
-     * Number of parking spots are established through the user input.
-     * 
-     */
-    
-   
-//   public void addVisStafParking(){
-//      JOptionPane jO = new JOptionPane();
-//      boolean query = false;
-//      while (!query){
-//      String vis = jO.showInputDialog("Enter Number of Visitor Parking");
-//      String stf = jO.showInputDialog("Enter Number of Staff Parking");
-//      if (vis!=null && stf!=null){
-//
-//      if(!vis.chars().allMatch( Character::isDigit ) || !stf.chars().allMatch( Character::isDigit ))
-//      {
-//          jO.showMessageDialog(null, "Please enter a numeric value eg. (1 or 5 )");
-//
-//      }
-//       else if(stf.equals("") || vis.equals(""))
-//      {
-//          jO.showMessageDialog(null, "Please don't leave input blank. Enter a numeric value eg. (1 or 5 )");
-//
-//      }
-//      else
-//      {
-//      int vid = Integer.parseInt(vis);
-//      int nid = Integer.parseInt(stf);
-//
-//      int p = 0;
-//      int z = 0;
-//
-//      while (p<vid)
-//        {
-//            p++;                                                                       //increment i
-//            String uniqueNum = String.format("%03d", p);                               // 3 digit sequential id "001", "002" etc
-//            ParkingSlot aParkingSlot = new ParkingSlot("V" + uniqueNum);               // V + 001, V+ 002 and so on
-//            carpar.addNewParkingSlot(aParkingSlot);
-//        }
-//      while (z<nid)
-//        {
-//            z++;                                                                       //increment i
-//            String uniqueNum = String.format("%03d", z);                               // 3 digit sequential id "001", "002" etc
-//            ParkingSlot aParkingSlot = new ParkingSlot("S" + uniqueNum, true);               // S + 001, S+ 002 and so on
-//            carpar.addNewParkingSlot(aParkingSlot);
-//        }
-//      JOptionPane.showMessageDialog(null, p + " visitor parking spots created and " + z + " staff parking spots created!");
-//      query = true;
-//     }
-//    }
-//    }
-//    }
-    
-   /**
-     * deleting the car parking by taking the userinput for the spot required to be deleted. If spot is not occupied then it is 
-     * deleted and success message is displayed else an alert is displayed to user.
-     * This function is implemented in an anonymous listener in the prepareGUI.
-     * 
+     * deleting the car parking by user input
      */ 
     
     
@@ -321,10 +251,7 @@ public class GUI implements ActionListener{
     }
    
    /**
-    * Adding a new parking slot by taking the user input. if the parking id doesn't exist and if it matches the required format then
-    * it is added to the carpark and the updated parkingslots are displayed to the user.
-    * This function is implemented in an anonymous listener in the prepareGUI.
-    * 
+    * Adding car parking spot by taking userInput
     */ 
     
    public void addParkingSpot(){
@@ -396,9 +323,7 @@ public class GUI implements ActionListener{
     } 
     
    /**
-    * Removing the parked vehicle from the parking slots and updated vacancy to true
-    * through the registration number taken from user input.
-    * This function is implemented in an anonymous inner class listener in the prepareGUI.
+    * Removing vehicle from spot and update the spot to empty
     * 
     */  
     
@@ -433,12 +358,7 @@ public class GUI implements ActionListener{
     }
     
    /**
-    * Listener for this JFrame. Used in showAllParkings() to provide functionality for ParkingSlot buttons.
-    * Has functions for all buttons linking to addParkingSpot(), removeParkingSpotSubMenu(String spotid).
-    * If parking slot is occupied then removeCarSubMenu(String spotid).
-    * If parking slot is empty then parkCarSubMenu(spotid).
-    * 
-    * 
+    *
     */
     
     
@@ -477,9 +397,7 @@ public class GUI implements ActionListener{
     }
     
    /**
-    * Parking a car by taking the user input for reg and owner. Duplicate registration numbers aren't allowed.
-    * This function is implemented by using this frame as a listener in showAllParkings.
-    * 
+    * ParkCarSubMenu showed when right click on parking spot
     */  
    
    public void parkCarSubMenu(String spotid)
@@ -546,9 +464,7 @@ public class GUI implements ActionListener{
             
             
    /**
-    * Removing the parkingslot through clicking on parkingslot button. If slot isn't occupied then it is deleted.
-    * This function is implemented by using this frame as a listener in showAllParkings.
-    * 
+    * Removing the parkingSlot through clicking on parkingSlot button
     */         
             
    public void removeParkingSpotSubMenu(String spotid){
@@ -567,8 +483,6 @@ public class GUI implements ActionListener{
    
     /**
     * Removing the car parked from an occupied parking slot.
-    * This function is implemented by using this frame as a listener in showAllParkings and only used by an occupied spot.
-    * 
     */   
             
    public void removeCarSubMenu(String id){
@@ -579,9 +493,7 @@ public class GUI implements ActionListener{
     }
     
    /**
-    * Displaying all parkingslots to the user including occupied and empty spots.
-    * The output is displayed through clickable buttons which use this frame as a listener to provide functionality.
-    * This function is implemented in an anonymous inner class listener in the prepareGUI.
+    * Displaying all parkingSlots to the user including occupied and empty spots.
     */ 
     
    
@@ -595,33 +507,23 @@ public class GUI implements ActionListener{
                labelButton.setText("<html>"+aParkingSlot.getParkingSlotId()+"<br/>"+ ((aParkingSlot.getIsStaff())?"Staff":"Visitor")+"<br/>"+((aParkingSlot.getIsOccupied())?"Occupied":"Empty")+"<br/>"+aParkingSlot.getVehicle().getOwner()+"<br/>"+((Car)aParkingSlot.getVehicle()).getrego()+"</html>");
                labelButton.setBackground(Color.RED);
                headerpanel.add(labelButton);
-
-                
                labelButton.addActionListener(this);         // using this class as a listener for displayed buttons
-
             }
             else
             {
                labelButton = new JButton();
                labelButton.setText("<html>"+aParkingSlot.getParkingSlotId()+"<br/>"+ ((aParkingSlot.getIsStaff())?"Staff":"Visitor")+"<br/>"+((aParkingSlot.getIsOccupied())?"Occupied":"Empty")+"</html>");
                headerpanel.add(labelButton);
-               labelButton.addActionListener(this); 
-                
-                //value += String.format("%-20s",aParkingSlot.getParkingSlotId());
-               //value += String.format("%-20s%-20s%-20s%-20s%-20s%-20s",aParkingSlot.getParkingSlotId(), ((aParkingSlot.getIsStaff())?"Staff":"Visitor") , ((aParkingSlot.getIsOccupied())?"Occupied":"Empty"),"---","---","<br>");
+               labelButton.addActionListener(this);
             }            
        }
        headerpanel.revalidate();
        headerpanel.repaint();   
        mainFrame.setVisible(true);
-       //headerLabel.setText(String.format("<html><body style=\"text-align: justify;  text-justify: inter-word;\">%s</body></html>",value));
-       //headerLabel.setText("<html>" +value +"</html>");
     }
     
    /**
-    * Finding the car by taking registration as an input from the user. If no car is available in the parking slots
-    * then an message is displayed and user is taken back to home screen
-    * This function is implemented in an anonymous inner class listener in the prepareGUI.
+    * Finding the car by taking registration as an input from the user
     */  
    
    public void findCar(){
@@ -629,7 +531,7 @@ public class GUI implements ActionListener{
        headerLabel= new JLabel("");
        String value ="";
        boolean query = false;
-       String rego = JOptionPane.showInputDialog("The Rego Number of the Car eg. (30A12345)");
+       String rego = JOptionPane.showInputDialog("The Registration Number of the Car eg. (30A12345)");
        if(rego!=null){
        value ="Your Parking details are as following: <br><p style='font-size:11px;'>"+"ID " + " Status " + " Vacancy " + " Registration "+ " Owner " + " Time In "+"</p>"+ "<br>";
        for(ParkingSlot aParkingSlot : carpar.getAllParkingSlots())
@@ -659,8 +561,6 @@ public class GUI implements ActionListener{
     
    /**
     * Parking a car by taking the user input for the registration number, owner name and spot id. Duplicate registrations aren't allowed.
-    * Reg number also has to follow format.
-    * This function is implemented in an anonymous inner class listener in the prepareGUI.
     */  
     
    public void parkCar(){
@@ -676,7 +576,7 @@ public class GUI implements ActionListener{
                 headerLabel.setText("No Car Park Available");
            }
            else if(!carpar.findVehicleRego(rego).isEmpty()){
-                JOptionPane.showMessageDialog(headerLabel, "Registration exists in carpark. Please select another Registration", "Duplicate Vehicle", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(headerLabel, "Registration exists in car park. Please select another Registration", "Duplicate Vehicle", JOptionPane.WARNING_MESSAGE);
                 headerLabel.setText("<html>Alert: Vehicle Registration Already exists! Can't Park more than one Vehicle.</html>");
            }
            else

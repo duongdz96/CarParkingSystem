@@ -63,8 +63,7 @@ public abstract class Vehicle
      */
     
     
-    public long getTimeIn()
-    {
+    public long getTimeIn()    {
         return arrivalTime.until(LocalDateTime.now(),ChronoUnit.MINUTES);
     }
     

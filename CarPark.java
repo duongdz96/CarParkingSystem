@@ -37,7 +37,7 @@ public class CarPark
     }
     
     /**
-     * Removes a parking slot from the collection of parkingslots
+     * Removes a parking slot from the collection of parking slots
      * 
      * @param spotId which is the spot that needs to be removed
      * @return false if spot doesn't exist and true if spot is removed from collection.
@@ -60,7 +60,7 @@ public class CarPark
     /**
      * Gets all available parking slots.
      * 
-     * @return availParkingSlots, the parkingspots that are not occupied
+     * @return availParkingSlots, the parking spots that are not occupied
      */ 
     
     public ArrayList<ParkingSlot> getAvailableParkingSlots()
@@ -76,10 +76,10 @@ public class CarPark
     
     
     /** 
-     * Finds the vehicle by owner name in the parkingslot.
+     * Finds the vehicle by owner name in the parking slot.
      * 
-     * @param ownerName of the vehicle to be found from the parkingslots.
-     * @return foundParkingSlots, the parkingspot of the vehicle owner
+     * @param ownerName of the vehicle to be found from the parking slots.
+     * @return foundParkingSlots, the parking spot of the vehicle owner
      */
     
     public ArrayList<ParkingSlot> findVehicleOwner(String ownerName)
@@ -102,10 +102,10 @@ public class CarPark
     
     /**
      * 
-     * Finds the vehicle by registration number in the parkingslot list.
+     * Finds the vehicle by registration number in the parking slot list.
      * 
-     * @param Rego of the vehicle to be found from the parkingslots.
-     * @return foundParkingSlots, the parkingspot matching the registration number
+     * @param Rego of the vehicle to be found from the parking slots.
+     * @return foundParkingSlots, the parking spot matching the registration number
      */
     
     public ArrayList<ParkingSlot> findVehicleRego(String Rego)
@@ -130,8 +130,8 @@ public class CarPark
      * 
      * Finds the parking slot based on given id
      * 
-     * @param id of the parking to be found from the parkingslots.
-     * @return foundParkingSlots, the parkingspot matching the id provided number
+     * @param id of the parking to be found from the parking slots.
+     * @return foundParkingSlots, the parking spot matching the id provided number
      */
     
     
@@ -151,10 +151,10 @@ public class CarPark
     
     /**
      * 
-     * Finds the occupied parking slots in the carpark
+     * Finds the occupied parking slots in the car park
      * Loops through ParkingSlots and checks if parking is occupied
      * 
-     * @return occupiedParkingSlots, the parkingslots that are occupied
+     * @return occupiedParkingSlots, the parking slots that are occupied
      */
     
     public ArrayList<ParkingSlot> getOccupiedParkingSlots()
@@ -170,10 +170,10 @@ public class CarPark
     
     /**
      * 
-     * Finds the staff parking slots in the carpark
+     * Finds the staff parking slots in the car park
      * Loops through ParkingSlots and checks if parking belongs to staff
      * 
-     * @return staffParkingSlots, the parkingslots that belong to staff
+     * @return staffParkingSlots, the parking slots that belong to staff
      */
     
     public ArrayList<ParkingSlot> getStaffParkingSlots()
@@ -191,10 +191,10 @@ public class CarPark
     
     /**
      * 
-     * Finds all parkingslots in the carpark
+     * Finds all parking slots in the car park
      * 
      * 
-     * @return ParkingSlots, all parking slots in carpark
+     * @return ParkingSlots, all parking slots in car park
      */
     
     public ArrayList<ParkingSlot> getAllParkingSlots()
