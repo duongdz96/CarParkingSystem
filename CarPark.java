@@ -8,7 +8,6 @@ public class CarPark
      
     /** 
      * defines the ParkingSlot collection object
-     * 
      */
     
     public CarPark()

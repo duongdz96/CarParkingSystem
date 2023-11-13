@@ -15,7 +15,7 @@ public class ParkingSlot
      * Constructor for Visitor ParkingSlot
      * By default it assigns isOccupied and isStaff to false.
      *
-     * @param id of the parkingspot
+     * @param id of the parking spot
      */
     
     public ParkingSlot(String sId)
@@ -167,7 +167,7 @@ public class ParkingSlot
     /**
      * Gives the details of the ParkingSlot
      * 
-     * @return id, parkingslot id
+     * @return id, parking slot id
      * @return isStaff, if belongs to staff then true else false
      * @return isOccupied, if vehicle parked then true else false
      */

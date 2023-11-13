@@ -84,7 +84,6 @@ public class GUI implements ActionListener{
             {
                 /*
                  * everything on the headerpanel first and runs the showAllParkings function when button 1 is clicked
-                 * 
                  */
                 public void actionPerformed(ActionEvent e)
                 {
@@ -336,12 +335,7 @@ public class GUI implements ActionListener{
         }
     
     }
-    
-   /**
-    *
-    */
-    
-    
+
     public void actionPerformed(ActionEvent e)
     {
         /*
@@ -513,14 +507,14 @@ public class GUI implements ActionListener{
        boolean query = false;
        String rego = JOptionPane.showInputDialog("The Registration Number of the Car eg. (30A12345)");
        if(rego!=null){
-       value ="Your Parking details are as following: <br><p style='font-size:11px;'>"+"ID " + " Status " + " Vacancy " + " Registration "+ " Owner " + " Time In "+"</p>"+ "<br>";
+//       value ="Your Parking details are as following: <br><p style='font-size:11px;'>"+"ID " + " Status " + " Vacancy " + " Registration "+ " Owner " + " Time In "+"</p>"+ "<br>";
        for(ParkingSlot aParkingSlot : carpar.getAllParkingSlots())
        {
           if(aParkingSlot.getIsOccupied() && aParkingSlot.getVehicle() instanceof Car )
           {
               if(((Car)aParkingSlot.getVehicle()).getrego().equals(rego))
               {
-                value += " " +aParkingSlot.getParkingSlotId() +" "+((aParkingSlot.getIsStaff())?"Staff Parking":"Visitor Parking")+ " "+ ((aParkingSlot.getIsOccupied())?"Occupied":"Empty")+" "+((Car)aParkingSlot.getVehicle()).getrego()+" "+ aParkingSlot.getVehicle().getOwner()+ " "+ aParkingSlot.getVehicle().getTimeIn()+". min"+"<br>";
+                value += "ID: " +aParkingSlot.getParkingSlotId() +" Type: "+((aParkingSlot.getIsStaff())?"Staff Parking":"Visitor Parking")+ " Status "+ ((aParkingSlot.getIsOccupied())?"Occupied":"Empty")+" Registration: "+((Car)aParkingSlot.getVehicle()).getrego()+" Owner: "+ aParkingSlot.getVehicle().getOwner()+ " Time in: "+ aParkingSlot.getVehicle().getTimeIn()+". min"+"<br>";
                 query = true;
               }
           }
